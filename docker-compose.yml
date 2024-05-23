@@ -1,0 +1,21 @@
+name: sometrails
+
+services:
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    volumes:
+      - caddy-config:/config
+      - caddy-data:/data
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./frontend:/usr/share/caddy
+    environment:
+      - DOMAIN=${DOMAIN}
+
+volumes:
+  caddy-config:
+  caddy-data:
