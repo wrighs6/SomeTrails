@@ -15,6 +15,16 @@ services:
       - ./frontend:/usr/share/caddy
     environment:
       - DOMAIN=${DOMAIN}
+  api:
+    image: node:20-alpine
+    restart: unless-stopped
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./api:/home/node/app
+    command: "npm start"
 
 volumes:
   caddy-config:
