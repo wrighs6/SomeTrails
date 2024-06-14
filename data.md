@@ -7,7 +7,7 @@
 - **Distance**: Total length of the trail, in miles.
 - **Elevation Gain**: The total ascent over the course of the trail, in feet.
 - **Max Elevation**: The elevation of the highest point along the trail, in feet.
-- **Time to Complete**: Estimated time it takes to hike the trail.
+- **Time to Complete**: Estimated time it takes to hike the trail, in minutes.
 - **Tags**: A list of short strings such as "scenic", "pet friendly", "swimming", etc.
 - **Path**: A GeoJSON LineString representing the path taken by someone hiking the trail. The first point is the start, and the last point is the end.
 - **Pictures**: A list of URLs to pictures from the trail that can be retrieved by the client. 
