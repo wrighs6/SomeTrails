@@ -1,19 +1,19 @@
 [
   {
-    name: "Garnet Douglass Baltimore Trail",
-    description: "The City of Troy owes a great deal to Garnet Douglass Baltimore, a remarkable individual whose valuable contributions literally shaped the community in which we live in today. The designation of this newly-restored hiking trail within Prospect Park—the expansive recreational facility of which he designed—is a fitting tribute to his achievements and connection to the story of our great city and community.\nAbandoned for decades, the now-Garnet Douglass Baltimore Trail was one of the original four roads that led into Prospect Park. Under the leadership of the City and in coordination with local & federal partners, including the Friends of Prospect Park, the National Park Service Rivers & Trails Assistance Program, the Little Italy Quality of Life Committee and neighborhood volunteers, the approximately half-mile trail was cleared and reclaimed for public use. The trail expands the historic park’s trail system, directly connecting the Little Italy and South Troy neighborhoods to the peak of the approximately 84-acre city park. The trailhead is located on Hill Street between Adams Street and Jefferson Street in Troy’s Little Italy neighborhood and is open daily to the public from dawn until dusk.\nA member of the Class of 1881, the grandson of a Revolutionary War solider and former slave who escaped and settled in Troy, Garnet Douglass Baltimore spent much of his early career participating in the survey, design and construction of bridges, canals, waterways and railroads across New York State, including portions of the Oswego and Erie Canals. In 1903, Baltimore made his most significant contribution to the Collar City with the design of Troy’s now historic Prospect Park. Garnett died in 1946 in the home where he was born on 8th Street. He is buried in Oakwood Cemetery in Troy.\nDescription source: https://www.troyny.gov/1496/Garnet-Douglass-Baltimore-Trail",
-    location: "Prospect Park",
-    difficulty: 1,
-    distance: 0.9,
-    elevationGain: 187,
-    time: 28,
-    path: [[-73.68896372805848,42.721716874906576],[-73.68821183547735,42.72188580750131],[-73.68778113972658,42.72189117043325],[-73.68737964368819,42.72180804493536],[-73.68691974822563,42.721800000526656],[-73.68674089999058,42.72169006016631],[-73.6867627997744,42.72151308259228],[-73.68668615053065,42.721314652590394],[-73.68642700308757,42.72132269706242],[-73.68621895514013,42.72146749737769],[-73.68613865593268,42.72182949668738],[-73.68613135600474,42.72209764296289],[-73.68612405607679,42.722199538243245],[-73.68599630733738,42.722408691190026],[-73.68570066025397,42.722438187061755],[-73.6851825466581,42.72226981402392],[-73.68470164848178,42.721635326644275],[-73.68451517776018,42.72152717473884],[-73.68410788644697,42.72147309871545],[-73.68379873761992,42.72148391392412]],
-    images: ["https://www.troyny.gov/ImageRepository/Document?documentId=982"]
+    "name": "Garnet Douglass Baltimore Trail",
+    "description": "The City of Troy owes a great deal to Garnet Douglass Baltimore, a remarkable individual whose valuable contributions literally shaped the community in which we live in today. The designation of this newly-restored hiking trail within Prospect Park—the expansive recreational facility of which he designed—is a fitting tribute to his achievements and connection to the story of our great city and community.\nAbandoned for decades, the now-Garnet Douglass Baltimore Trail was one of the original four roads that led into Prospect Park. Under the leadership of the City and in coordination with local & federal partners, including the Friends of Prospect Park, the National Park Service Rivers & Trails Assistance Program, the Little Italy Quality of Life Committee and neighborhood volunteers, the approximately half-mile trail was cleared and reclaimed for public use. The trail expands the historic park’s trail system, directly connecting the Little Italy and South Troy neighborhoods to the peak of the approximately 84-acre city park. The trailhead is located on Hill Street between Adams Street and Jefferson Street in Troy’s Little Italy neighborhood and is open daily to the public from dawn until dusk.\nA member of the Class of 1881, the grandson of a Revolutionary War solider and former slave who escaped and settled in Troy, Garnet Douglass Baltimore spent much of his early career participating in the survey, design and construction of bridges, canals, waterways and railroads across New York State, including portions of the Oswego and Erie Canals. In 1903, Baltimore made his most significant contribution to the Collar City with the design of Troy’s now historic Prospect Park. Garnett died in 1946 in the home where he was born on 8th Street. He is buried in Oakwood Cemetery in Troy.\nDescription source: https://www.troyny.gov/1496/Garnet-Douglass-Baltimore-Trail",
+    "location": "Prospect Park",
+    "difficulty": 1,
+    "distance": 0.9,
+    "elevationGain": 187,
+    "time": 28,
+    "path": [[-73.68896372805848,42.721716874906576],[-73.68821183547735,42.72188580750131],[-73.68778113972658,42.72189117043325],[-73.68737964368819,42.72180804493536],[-73.68691974822563,42.721800000526656],[-73.68674089999058,42.72169006016631],[-73.6867627997744,42.72151308259228],[-73.68668615053065,42.721314652590394],[-73.68642700308757,42.72132269706242],[-73.68621895514013,42.72146749737769],[-73.68613865593268,42.72182949668738],[-73.68613135600474,42.72209764296289],[-73.68612405607679,42.722199538243245],[-73.68599630733738,42.722408691190026],[-73.68570066025397,42.722438187061755],[-73.6851825466581,42.72226981402392],[-73.68470164848178,42.721635326644275],[-73.68451517776018,42.72152717473884],[-73.68410788644697,42.72147309871545],[-73.68379873761992,42.72148391392412]],
+    "images": ["https://www.troyny.gov/ImageRepository/Document?documentId=982"]
   },
   {
-    name: "Trail 2"
+    "name": "Trail 2"
   },
   {
-    name: "Trail 3"
+    "name": "Trail 3"
   }
 ]
