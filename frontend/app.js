@@ -1,11 +1,14 @@
-import { render } from 'preact';
+import { Component, render } from 'preact';
 import { html } from 'htm/preact';
 
-function App() {
+class App extends Component {
+  componentDidMount() {
+    this.setState({ view: "home" });
+  }
 
-  return html`
-    <p>Hello, world!</p>
-  `;
+  render() {
+    return html`<p>current state: ${this.state.view}</p>`;
+  }
 }
 
 render(html`<${App} />`, document.body);
