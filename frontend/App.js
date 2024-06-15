@@ -1,5 +1,6 @@
 import { Component, render } from 'preact';
 import { html } from 'htm/preact';
+import Home from './Home.js';
 
 class App extends Component {
   componentDidMount() {
@@ -7,7 +8,7 @@ class App extends Component {
   }
 
   render() {
-    return html`<p>current state: ${this.state.view}</p>`;
+    return html`<${Home} />`;
   }
 }
 
