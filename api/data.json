@@ -11,9 +11,47 @@
     "images": ["https://www.troyny.gov/ImageRepository/Document?documentId=982"]
   },
   {
-    "name": "Trail 2"
+    "name": "Peebles Island Perimeter Trail",
+    "description": "Peebles Island State Park is at the confluence of the Hudson and Mohawk Rivers. It offers spectacular river and rapids views for walkers and joggers who take advantage of the miles of paths through the gently rolling and wooded landscape. Picnickers and fishermen come to relax and winter visitors use the facilities to cross-country ski, hike and snowshoe. Peebles Island is also the headquarters of the Bureau of Historic Sites and Bureau of Historic Preservation Field Services. The staff provide technical services, such as record maintenance, analysis of artifacts, and preparation of publications, exhibits and audio visual programs for the 35 historic sites maintained by State Parks. The Field Services Bureau assists all New York's municipalities and citizens with National Register of Historic Place listings, investment tax credit and review of all state and federal projects. \nDescription source: https://parks.ny.gov/parks/peeblesisland/maps.aspx",
+    "location": "Peebles Island State Park",
+    "difficulty": 1,
+    "distance": 2.4,
+    "elevationGain": 91,
+    "time": 47,
+    "path": [],
+    "images": ["https://3.bp.blogspot.com/-oMGjzcgUMiU/WBZmaG9olhI/AAAAAAAAXUY/BWF67FmpU8wPDEeLMcvWrSSlemZ8maAkACLcB/s1600/IMG_2751.JPG"]
   },
   {
-    "name": "Trail 3"
-  }
+    "name": "Trail #3"
+    "description": "Placeholder",
+    "location": "Earth",
+    "difficulty": 1,
+    "distance": 1.0,
+    "elevationGain": 1,
+    "time": 1,
+    "path": [],
+    "images": [""]
+  },
+  {
+    "name": "Champlain Valley Trail: Albany to Rouses Point"
+    "description": "Placeholder",
+    "location": "Earth",
+    "difficulty": 5,
+    "distance": 175.0,
+    "elevationGain": 9409,
+    "time": 1,
+    "path": [],
+    "images": [""]
+  },
+  {
+    "name": "Indian Ladder Trail"
+    "description": "https://hikethehudsonvalley.com/hikes/indian-ladder-trail/",
+    "location": "Thacher State Park",
+    "difficulty": 2,
+    "distance": 2.5,
+    "elevationGain": 541,
+    "time": 150,
+    "path": [],
+    "images": ["https://uncoveringnewyork.com/wp-content/uploads/2021/11/Minelot-Falls-Thacher-State-Park-0066.jpg"]
+  },  
 ]
