@@ -22,7 +22,7 @@
     "images": ["https://3.bp.blogspot.com/-oMGjzcgUMiU/WBZmaG9olhI/AAAAAAAAXUY/BWF67FmpU8wPDEeLMcvWrSSlemZ8maAkACLcB/s1600/IMG_2751.JPG"]
   },
   {
-    "name": "Trail #3"
+    "name": "Trail #3",
     "description": "Placeholder",
     "location": "Earth",
     "difficulty": 1,
@@ -33,7 +33,7 @@
     "images": [""]
   },
   {
-    "name": "Champlain Valley Trail: Albany to Rouses Point"
+    "name": "Champlain Valley Trail: Albany to Rouses Point",
     "description": "Placeholder",
     "location": "Earth",
     "difficulty": 5,
@@ -44,7 +44,7 @@
     "images": [""]
   },
   {
-    "name": "Indian Ladder Trail"
+    "name": "Indian Ladder Trail",
     "description": "https://hikethehudsonvalley.com/hikes/indian-ladder-trail/",
     "location": "Thacher State Park",
     "difficulty": 2,
@@ -53,5 +53,5 @@
     "time": 150,
     "path": [],
     "images": ["https://uncoveringnewyork.com/wp-content/uploads/2021/11/Minelot-Falls-Thacher-State-Park-0066.jpg"]
-  },  
+  }  
 ]
