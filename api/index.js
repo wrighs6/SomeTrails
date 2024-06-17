@@ -1,9 +1,11 @@
+const data = require("./data.json");
+
 const express = require("express");
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.json(data);
 });
 
 app.listen(80, () => {
