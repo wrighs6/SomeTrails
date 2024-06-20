@@ -91,7 +91,9 @@ body::before {
 .result-image {
   width: 450px; 
   height: auto; 
-  margin-right: 16px;
+  margin-right: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   border-radius: 8px;
 }
 
