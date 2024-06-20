@@ -2,10 +2,20 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   margin: 0;
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Hiking_to_the_Ice_Lakes._San_Juan_National_Forest%2C_Colorado.jpg/3240px-Hiking_to_the_Ice_Lakes._San_Juan_National_Forest%2C_Colorado.jpg');
-  background-size: cover; 
-  background-position: center; 
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
+}
+
+.main-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 main.home .welcome {
@@ -15,30 +25,35 @@ main.home .welcome {
   color: white;
   padding: 4rem;
   box-sizing: border-box;
-}
-
-main.home .welcome::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 main.home .welcome h1 {
   position: relative;
   font-size: 6rem;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  padding: 0.5em 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 
 main.home .welcome h2 {
   position: relative;
   font-size: 3rem;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  padding: 0.5em 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 
 main.home form {
   position: relative;
+  z-index: 1;
 }
 
 main.home input {
@@ -60,17 +75,25 @@ main.home button {
 
 .search-result {
   position: relative;
-  z-index: 1; 
-  margin-top: 1em; 
+  z-index: 1;
+  margin-top: 1em;
   font-size: 1.5rem;
   color: black;
   background-color: beige;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   border-radius: 10px;
-  width: 45em; 
+  width: 45em;
   box-sizing: border-box;
   text-align: left;
-  margin: 1em auto 0 auto; 
+  margin: 1em auto 0 auto;
   overflow-wrap: break-word;
-  display: none; 
+  display: none;
+}
+
+.result-item {
+  margin-top: 1em;
+  background-color: lightgoldenrodyellow;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
