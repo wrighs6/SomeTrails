@@ -5,12 +5,12 @@ body {
 
 body::before {
   content: "";
+  position: absolute;
   z-index: -1;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: block;
+  width: 100%;
+  height: 100%;
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Hiking_to_the_Ice_Lakes._San_Juan_National_Forest%2C_Colorado.jpg/3240px-Hiking_to_the_Ice_Lakes._San_Juan_National_Forest%2C_Colorado.jpg');
   background-size: cover; 
   background-position: center; 
@@ -91,9 +91,7 @@ body::before {
 .result-image {
   width: 450px; 
   height: auto; 
-  margin-right: 8px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-right: 16px;
   border-radius: 8px;
 }
 
