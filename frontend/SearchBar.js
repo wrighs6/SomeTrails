@@ -1,17 +1,3 @@
-/*import { Component } from 'preact';
-import { html } from 'htm/preact';
-
-export default class SearchBar extends Component {
-  render() {
-    return html`
-      <form>
-        <input type="text" placeholder="Search by location or trail name" />
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form
-    `;
-  }
-}*/
-
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
@@ -28,6 +14,10 @@ class SearchBar extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ result: `You searched for: ${this.state.query}` });
+    const resultElement = document.querySelector('.search-result');
+    if (resultElement) {
+      resultElement.style.display = 'block'; // Show the result element
+    }
   }
 
   render() {
