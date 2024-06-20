@@ -3,9 +3,7 @@ import { html } from 'htm/preact';
 import Home from './Home.js';
 
 class App extends Component {
-  componentDidMount() {
-    this.setState({ view: "home" });
-  }
+  state = { view: "home" };
 
   render() {
     return html`<${Home} />`;
