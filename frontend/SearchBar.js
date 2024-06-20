@@ -1,43 +1,36 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
   constructor() {
     super();
-    this.state = { query: '', result: '' };
+    this.state = { query: "", results: [] };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInput = (e) => {
-    this.setState({ query: e.target.value });
-  }
+  handleSubmit(event) {
+    event.preventDefault();
+    const query = event.target.querySelector('input').value;
+    let results = [`Result for "${query}"`];
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({ result: `You searched for: ${this.state.query}` });
-    const resultElement = document.querySelector('.search-result');
-    if (resultElement) {
-      resultElement.style.display = 'block'; // Show the result element
+    // Add sub-results for specific queries
+    if (query.toLowerCase() === "trail") {
+      results.push("Trail1", "Trail2");
     }
+
+    this.setState({ query, results });
+    document.querySelector('.search-result').style.display = 'block';
   }
 
   render() {
     return html`
-      <div>
-        <form onSubmit=${this.handleSubmit}>
-          <input 
-            type="text" 
-            placeholder="Search by location or trail name" 
-            value=${this.state.query}
-            onInput=${this.handleInput} 
-          />
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <div class="search-result">
-          <p>${this.state.result}</p>
-        </div>
+      <form onSubmit=${this.handleSubmit}>
+        <input type="text" placeholder="Search by location or trail name" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <div class="search-result">
+        ${this.state.results.map(result => html`<div class="result-item">${result}</div>`)}
       </div>
     `;
   }
 }
-
-export default SearchBar;
