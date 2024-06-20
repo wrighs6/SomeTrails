@@ -11,7 +11,7 @@ export default class SearchResults extends Component {
         { 
           title: "Trail1", 
           description: "This is a description for Trail1.", 
-          imageUrl: "https://th.bing.com/th/id/OIP.OnDSYYB09LMRdQfG3GtkgAHaGB?rs=1&pid=ImgDetMain",
+          imageUrl: "https://www.troyny.gov/ImageRepository/Document?documentId=982",
           location: "USE API FOR THIS",
           difficulty: 0,
           distance: 1.0,
@@ -21,7 +21,7 @@ export default class SearchResults extends Component {
         { 
           title: "Trail2", 
           description: "This is a description for Trail2.", 
-          imageUrl: "https://th.bing.com/th/id/OIP.OnDSYYB09LMRdQfG3GtkgAHaGB?rs=1&pid=ImgDetMain",
+          imageUrl: "https://3.bp.blogspot.com/-oMGjzcgUMiU/WBZmaG9olhI/AAAAAAAAXUY/BWF67FmpU8wPDEeLMcvWrSSlemZ8maAkACLcB/s1600/IMG_2751.JPG",
           location: "USE API FOR THIS",
           difficulty: 0,
           distance: 1.0,
@@ -31,7 +31,7 @@ export default class SearchResults extends Component {
         { 
           title: "Trail3", 
           description: "This is a description for Trail3.", 
-          imageUrl: "https://th.bing.com/th/id/OIP.OnDSYYB09LMRdQfG3GtkgAHaGB?rs=1&pid=ImgDetMain",
+          imageUrl: "https://i0.wp.com/decideyouradventure.com/wp-content/uploads/2018/09/albany-pine-bush-1.jpg?w=900&ssl=1",
           location: "USE API FOR THIS",
           difficulty: 0,
           distance: 1.0,
@@ -41,7 +41,7 @@ export default class SearchResults extends Component {
         { 
           title: "Trail4", 
           description: "This is a description for Trail4.", 
-          imageUrl: "https://th.bing.com/th/id/OIP.OnDSYYB09LMRdQfG3GtkgAHaGB?rs=1&pid=ImgDetMain",
+          imageUrl: "https://cdn.prod.website-files.com/609d2f26d188080a94ab7bcc/61d3697852fcbf35a17bff99_Rail%20Trail-p-1600.jpeg",
           location: "USE API FOR THIS",
           difficulty: 0,
           distance: 1.0,
@@ -51,7 +51,7 @@ export default class SearchResults extends Component {
         { 
           title: "Trail5", 
           description: "This is a description for Trail5.", 
-          imageUrl: "https://th.bing.com/th/id/OIP.OnDSYYB09LMRdQfG3GtkgAHaGB?rs=1&pid=ImgDetMain",
+          imageUrl: "https://uncoveringnewyork.com/wp-content/uploads/2021/11/Minelot-Falls-Thacher-State-Park-0066.jpg",
           location: "USE API FOR THIS",
           difficulty: 0,
           distance: 1.0,
