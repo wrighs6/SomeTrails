@@ -7,7 +7,7 @@ export default class SearchResults extends Component {
 
     // Add sub-results for specific queries
     if (this.props.query.toLowerCase() === "trail")
-      results.push("Trail1", "Trail2");
+      results.push("Trail1", "Trail2", "Trail3", "Trail4", "Trail5");
 
       return html`
         <div class="search-result">
