@@ -7,6 +7,7 @@ export default class SearchBar extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const query = event.target.querySelector('input').value;
+    this.props.search(query);
     let results = [`Result for "${query}"`];
 
     // Add sub-results for specific queries

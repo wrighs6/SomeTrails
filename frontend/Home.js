@@ -9,7 +9,7 @@ export default class Home extends Component {
         <div class="welcome">
           <h1>SomeTrails</h1>
           <h2>Find your path</h2>
-          <${SearchBar} />
+          <${SearchBar} search=${this.props.search} />
         </div>
       </main>
     `;
