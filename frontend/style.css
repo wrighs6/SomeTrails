@@ -74,3 +74,11 @@ main.home button {
   overflow-wrap: break-word;
   display: none; 
 }
+
+.result-item {
+  margin-top: 1em;
+  background-color: #d2b48c; 
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
