@@ -83,6 +83,7 @@ body::before {
   background-color: #d2b48c; 
   padding: 8px 16px;
   border-radius: 8px;
+  display: flex;
 }
 
 .result-title {
