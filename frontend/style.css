@@ -8,6 +8,16 @@ body {
   background-attachment: fixed;
 }
 
+.main-overlay {
+  position: fixed; /* Fixed position to stay in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+  z-index: -1; /* Ensure it stays behind the content */
+}
+
 main.home .welcome {
   position: relative;
   height: 100vh;
@@ -21,33 +31,24 @@ main.home .welcome {
   align-items: center;
 }
 
-main.home .welcome::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 0;
-}
-
 main.home .welcome h1 {
   position: relative;
   font-size: 6rem;
   z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   padding: 0.5em 1em;
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 main.home .welcome h2 {
   position: relative;
   font-size: 3rem;
   z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   padding: 0.5em 1em;
-  background-color: rgba(255, 255, 255, 0.3); 
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
 }
 
 main.home form {
