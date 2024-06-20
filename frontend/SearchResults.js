@@ -69,11 +69,11 @@ export default class SearchResults extends Component {
             <div class="result-content">
               <div class="result-title">${result.title}</div>
               <div class="result-description">${result.description}</div>
-              <div class="result-part">${result.location}</div>
-              <div class="result-part">${result.difficulty}</div>
-              <div class="result-part">${result.distance}</div>
-              <div class="result-part">${result.elevationGain}</div>
-              <div class="result-part">${result.time}</div>
+              <div class="result-location">${result.location}</div>
+              <div class="result-difficulty">${result.difficulty}</div>
+              <div class="result-distance">${result.distance}</div>
+              <div class="result-elevationGain">${result.elevationGain}</div>
+              <div class="result-time">${result.time}</div>
             </div>
             <img class="result-image" src=${result.imageUrl} alt=${result.title} />
           </div>
