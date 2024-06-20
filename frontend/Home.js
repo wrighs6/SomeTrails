@@ -5,13 +5,11 @@ import SearchBar from './SearchBar.js';
 export default class Home extends Component {
   render() {
     return html`
-      <main class="home">
-        <div class="welcome">
-          <h1>SomeTrails</h1>
-          <h2>Find your path</h2>
-          <${SearchBar} search=${this.props.search} />
-        </div>
-      </main>
+      <div class="home">
+        <h1>SomeTrails</h1>
+        <h2>Find your path</h2>
+        <${SearchBar} search=${this.props.search} />
+      </div>
     `;
   }
 }
