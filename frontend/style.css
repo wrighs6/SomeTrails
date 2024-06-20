@@ -62,9 +62,9 @@ main.home button {
   font-size: 1.5rem;
   color: black;
   background-color: beige;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
-  width: calc(20em + 40px);
+  width: calc(30em);
   box-sizing: border-box;
   text-align: left;
   margin: 0 auto;
