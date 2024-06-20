@@ -23,7 +23,7 @@ main.home .welcome {
   height: 100vh;
   text-align: center;
   color: white;
-  padding: 2rem; /* Reduced padding to move content up */
+  padding: 4rem 2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
