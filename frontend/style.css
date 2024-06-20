@@ -89,7 +89,7 @@ body::before {
 }
 
 .result-image {
-  width: 120px; 
+  width: 450px; 
   height: auto; 
   margin-right: 16px;
   border-radius: 8px;
@@ -106,6 +106,26 @@ body::before {
 }
 
 .result-description {
+  font-size: 1rem;
+  color: #333;
+}
+.result-location {
+  font-size: 1rem;
+  color: #333;
+}
+.result-difficulty {
+  font-size: 1rem;
+  color: #333;
+}
+.result-distance {
+  font-size: 1rem;
+  color: #333;
+}
+.result-elevationGain {
+  font-size: 1rem;
+  color: #333;
+}
+.result-time {
   font-size: 1rem;
   color: #333;
 }
