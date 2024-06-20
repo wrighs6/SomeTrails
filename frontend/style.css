@@ -23,7 +23,7 @@ main.home .welcome {
   height: 100vh;
   text-align: center;
   color: white;
-  padding: 4rem;
+  padding: 2rem; /* Reduced padding to move content up */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -33,22 +33,24 @@ main.home .welcome {
 
 main.home .welcome h1 {
   position: relative;
-  font-size: 6rem;
+  font-size: 5rem; 
   z-index: 1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  padding: 0.5em 1em;
+  padding: 0.3em 0.6em;
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  border-radius: 6px; 
+  margin-bottom: 0.5em; 
 }
 
 main.home .welcome h2 {
   position: relative;
-  font-size: 3rem;
+  font-size: 2.5rem; 
   z-index: 1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  padding: 0.5em 1em;
+  padding: 0.3em 0.6em; 
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  border-radius: 3px;
+  margin-top: 0;
 }
 
 main.home form {
