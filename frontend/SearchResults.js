@@ -5,14 +5,15 @@ export default class SearchResults extends Component {
   render() {
     let results = [`Result for "${this.props.query}"`];
 
-    // Add sub-results for specific queries
-    if (this.props.query.toLowerCase() === "trail")
+    if (this.props.query.toLowerCase() === "trail") {
       results.push("Trail1", "Trail2", "Trail3", "Trail4", "Trail5");
-
-      return html`
-        <div class="search-result">
-          ${results.map(result => html`<div class="result-item">${result}</div>`)}
-        </div>
-      `;
     }
+
+    return html`
+      <div class="search-result">
+        <div class="main-result">${results[0]}</div>
+        ${results.slice(1).map(result => html`<div class="result-item">${result}</div>`)}
+      </div>
+    `;
+  }
 }
