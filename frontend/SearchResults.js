@@ -3,7 +3,7 @@ import { html } from 'htm/preact';
 
 export default class SearchResults extends Component {
   render() {
-    let results = [`Result for "${this.props.query}"`];
+    let results = [`Results for "${this.props.query}"`];
 
     if (this.props.query.toLowerCase() === "trail") {
       results.push("Trail1", "Trail2", "Trail3", "Trail4", "Trail5");
