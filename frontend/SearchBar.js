@@ -42,20 +42,12 @@ class SearchBar extends Component {
           />
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
-        <${SearchResult} result=${this.state.result} />
+        <div class="search-result">
+          <p>${this.state.result}</p>
+        </div>
       </div>
     `;
   }
 }
 
-const SearchResult = ({ result }) => {
-  return html`
-    <div class="search-result">
-      <p>${result}</p>
-    </div>
-  `;
-};
-
 export default SearchBar;
-
-
