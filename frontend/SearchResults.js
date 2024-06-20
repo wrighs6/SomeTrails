@@ -40,7 +40,7 @@ export default class SearchResults extends Component {
       <div class="search-result">
         <div class="main-result">${results[0]}</div>
         ${results.slice(1).map(result => html`
-          <div class="result-item">
+          <div class="result-item" onClick=${() => this.props.select(result.title)}>
             <div class="result-content">
               <div class="result-title">${result.title}</div>
               <div class="result-description">${result.description}</div>
