@@ -95,6 +95,8 @@ body::before {
   width: 500px; 
   height: auto; 
   margin-right: 16px; 
+  margin-top: 8px; 
+  margin-bottom: 8px; 
   border-radius: 8px;
 }
 
