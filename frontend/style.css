@@ -28,17 +28,17 @@ body::before {
 }
 
 .home h1 {
-  position: relative;
   font-size: 6rem;
+  margin-bottom: 0.5em; 
 }
 
 .home h2 {
-  position: relative;
   font-size: 3rem;
+  margin-top: 0; 
 }
 
 .home form {
-  position: relative;
+  margin-top: 2em; 
 }
 
 .home input {
@@ -59,31 +59,44 @@ body::before {
 }
 
 .search-result {
-  margin-top: 1em; 
+  margin-top: 1em;
   font-size: 1.5rem;
   color: black;
   background-color: beige;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   border-radius: 10px;
-  width: 45em; 
+  width: 45em;
   text-align: left;
-  margin: 1em auto 0 auto; 
+  margin: 1em auto 0 auto;
   overflow-wrap: break-word;
 }
 
 .main-result {
   text-align: center;
-  font-size: 2rem; 
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .result-item {
   margin-top: 1em;
-  background-color: #d2b48c; 
+  background-color: #d2b48c;
   padding: 8px 16px;
   border-radius: 8px;
   display: flex;
+  align-items: center; 
+}
+
+.result-image {
+  width: 120px; 
+  height: auto; 
+  margin-right: 16px;
+  border-radius: 8px;
+}
+
+.result-content {
+  flex: 1;
 }
 
 .result-title {
@@ -91,18 +104,7 @@ body::before {
   font-size: 1.2rem;
   margin-bottom: 0.5em;
 }
-.result-image {
-  width: 500px; 
-  height: auto; 
-  margin-right: 16px; 
-  margin-top: 8px; 
-  margin-bottom: 8px; 
-  border-radius: 8px;
-}
 
-.result-content {
-  flex: 1; /* Take remaining space */
-}
 .result-description {
   font-size: 1rem;
   color: #333;
