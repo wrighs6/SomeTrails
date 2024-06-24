@@ -102,7 +102,7 @@ body::before {
 }
 
 .image-container {
-  width: 350px;
+  width: 400px;
   height: 250px;
   overflow: hidden;
   display: flex;
@@ -134,4 +134,20 @@ body::before {
 .result-time {
   font-size: 1rem;
   color: #333;
+}
+
+.trail-detail {
+  width: 80%;
+  margin: 1em auto 1em auto;
+}
+
+.detail-card {
+  background-color: beige;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.detail-stats > span {
+  display: inline-block;
+  margin-right: 2em;
 }
