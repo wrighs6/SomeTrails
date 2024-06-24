@@ -75,7 +75,9 @@ export default class SearchResults extends Component {
               <div class="result-elevationGain">${result.elevationGain}</div>
               <div class="result-time">${result.time}</div>
             </div>
-            <img class="result-image" src=${result.imageUrl} alt=${result.title} />
+            <div class="image-container">
+              <img class="result-image" src=${result.imageUrl} alt=${result.title} />
+            </div>
           </div>
         `)}
       </div>
