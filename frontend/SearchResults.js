@@ -16,11 +16,11 @@ export default class SearchResults extends Component {
               <div class="result-content">
                 <div class="result-title">${result.name}</div>
                 <div class="result-description">${truncate(result.description)}</div>
-                <div class="result-location">${result.location}</div>
-                <div class="result-difficulty">${result.difficulty}</div>
-                <div class="result-distance">${result.distance}</div>
-                <div class="result-elevationGain">${result.elevationGain}</div>
-                <div class="result-time">${result.time}</div>
+                <div class="result-location">Location: ${result.location}</div>
+                <div class="result-difficulty">Difficulty: ${result.difficulty}</div>
+                <div class="result-distance">Distance: ${result.distance} miles</div>
+                <div class="result-elevationGain">Elevation gain: ${result.elevationGain} feet</div>
+                <div class="result-time">Estimated time: ${result.time} minutes</div>
               </div>
               <div class="image-container">
                 <img class="result-image" src=${result.images[0]} alt=${result.title} />
