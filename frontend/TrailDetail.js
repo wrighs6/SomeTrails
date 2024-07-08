@@ -3,7 +3,7 @@ import { html } from 'htm/preact';
 
 export default class TrailDetail extends Component {
   render() {
-    console.log(`displaying trail ${this.props.selected}`);
+    console.log(this.props.selected);
 
     return html`<div class="trail-detail">
       <div class="detail-card">
