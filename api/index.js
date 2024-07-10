@@ -1,11 +1,13 @@
-const data = require("./data.json");
-
 const express = require("express");
+
+const TrailJSON = require("./TrailJSON.js");
 
 const app = express();
 
+const provider = new TrailJSON("./data.json");
+
 app.get("/", (req, res) => {
-  res.json(data);
+  res.json(provider.search({}));
 });
 
 app.listen(80, () => {

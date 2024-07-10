@@ -1,0 +1,22 @@
+@startuml
+class TrailProvider <<interface>> {
+  ...
+  search(query: Object): Trail[]
+}
+class TrailJSON {
+  ...
+  search(query: Object): Trail[]
+}
+class TrailDB {
+  ...
+  search(query: Object): Trail[]
+}
+class Trail {
+  ...
+  getSimple(): Object
+  getDetailed(): Object
+}
+
+TrailJSON ..|> TrailProvider
+TrailDB ..|> TrailProvider
+@enduml
