@@ -10,7 +10,8 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.query != this.state.query) {
-      fetch(`https://api.${window.location.host}/`)
+      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({text: this.state.query})}`;
+      fetch(`https://api.${window.location.host}/${qs}`)
         .then(response => response.json())
         .then(data => this.setState({ trails: data}))
         .catch(error => console.error('Error fetching data:', error));
