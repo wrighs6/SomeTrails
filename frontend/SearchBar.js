@@ -2,11 +2,9 @@ import { Component } from 'preact';
 import { html } from 'htm/preact';
 
 export default class SearchBar extends Component {
-  state = { query: "", results: [] };
-
   handleSubmit = (event) => {
     event.preventDefault();
-    const query = event.target.querySelector('input').value;
+    const query = event.target.querySelector('input').value.trim();
     this.props.search(query);
   }
 
