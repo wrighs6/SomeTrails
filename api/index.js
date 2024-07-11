@@ -7,9 +7,11 @@ const app = express();
 const provider = new TrailJSON("./data.json");
 
 app.get("/", (req, res) => {
-  if (req.query.text != undefined)
-    console.log(req.query.text);
-  res.json(provider.search({}));
+  if (req.query.text != undefined) {
+    res.json(provider.search({ keywords: req.query.text.split(/\s\s*/) }));
+  } else {
+    res.json(provider.search({}));
+  }
 });
 
 app.listen(80, () => {
