@@ -1,5 +1,5 @@
 class Trail {
-  static pathLength(path) {
+  constructor({ name, description, location, difficulty, elevationGain, path, images }) {
     const haversineDistance = ([lon1, lat1], [lon2, lat2]) => {
       const toRadian = angle => (Math.PI / 180) * angle;
       const distance = (a, b) => (Math.PI / 180) * (a - b);
@@ -22,22 +22,20 @@ class Trail {
       return finalDistance;
     };
 
-    let sum = 0;
+    let distance = 0;
 
-    for (let i = 0; i < path.length - 1; i++)
-      sum += haversineDistance(path[i], path[i+1]);
+    for (let i = 0; i < path.length; i++) {
+      if (i+1 < path.length)
+        distance += haversineDistance(path[i], path[i+1]);
+    }
 
-    return sum;
-  }
-
-  constructor({ name, description, location, difficulty, distance, elevationGain, time, path, images }) {
     this.name = name;
     this.description = description;
     this.location = location;
     this.difficulty = difficulty;
-    this.distance = Trail.pathLength(path);
+    this.distance = distance;
     this.elevationGain = elevationGain;
-    this.time = this.distance * 30;
+    this.time = distance * 30;
     this.path = path;
     this.images = images;
   }
