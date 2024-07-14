@@ -1,5 +1,5 @@
 class Trail {
-  constructor({ name, description, location, difficulty, elevationGain, path, images }) {
+  constructor({ name, description, location, difficulty, path, images }) {
     const haversineDistance = ([lon1, lat1], [lon2, lat2]) => {
       const toRadian = angle => (Math.PI / 180) * angle;
       const distance = (a, b) => (Math.PI / 180) * (a - b);
@@ -23,11 +23,18 @@ class Trail {
     };
 
     let distance = 0;
+    let elevationGain = 0;
 
     for (let i = 0; i < path.length; i++) {
-      if (i+1 < path.length)
+      if (i+1 < path.length) {
         distance += haversineDistance(path[i], path[i+1]);
+        const change = path[i+1][2] - path[i][2];
+        if (change > 0)
+          elevationGain += change;
+      }
     }
+
+    elevationGain *= 3.280839895;
 
     this.name = name;
     this.description = description;
