@@ -20,6 +20,7 @@ export default class SearchResults extends Component {
                 <div class="result-difficulty">Difficulty: ${result.difficulty}</div>
                 <div class="result-distance">Distance: ${result.distance} miles</div>
                 <div class="result-elevationGain">Elevation gain: ${result.elevationGain} feet</div>
+                <div class="result-maximumElevation">Maximum elevation: ${result.maximumElevation} feet</div>
                 <div class="result-time">Estimated time: ${result.time} minutes</div>
               </div>
               <div class="image-container">

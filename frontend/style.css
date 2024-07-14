@@ -135,6 +135,7 @@ body::before {
 .result-difficulty,
 .result-distance,
 .result-elevationGain,
+.result-maximumElevation,
 .result-time {
   font-size: 1rem;
   color: #333;
