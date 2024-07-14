@@ -24,6 +24,7 @@ class Trail {
 
     let distance = 0;
     let elevationGain = 0;
+    let elevationMax = 0;
 
     for (let i = 0; i < path.length; i++) {
       if (i+1 < path.length) {
@@ -32,9 +33,12 @@ class Trail {
         if (change > 0)
           elevationGain += change;
       }
+      if (path[i][2] > elevationMax)
+        elevationMax = path[i][2];
     }
 
     elevationGain *= 3.280839895;
+    elevationMax *= 3.280839895;
 
     this.name = name;
     this.description = description;
@@ -42,6 +46,7 @@ class Trail {
     this.difficulty = difficulty;
     this.distance = distance;
     this.elevationGain = elevationGain;
+    this.elevationMax = elevationMax;
     this.time = distance * 30;
     this.path = path;
     this.images = images;
