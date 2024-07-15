@@ -14,9 +14,16 @@ class App extends Component {
     initialLoad: true,
   };
 
+<<<<<<< Updated upstream
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.query != this.state.query) {
+      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({text: this.state.query})}`;
+      fetch(`https://api.${window.location.host}/${qs}`)
+=======
   search = (q) => {
     this.setState({ query: q, initialLoad: false }, () => {
       fetch(`https://api.${window.location.host}/`)
+>>>>>>> Stashed changes
         .then(response => response.json())
         .then(data => this.setState({ trails: data }))
         .catch(error => console.error('Error fetching data:', error));
