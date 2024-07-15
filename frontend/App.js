@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   select = (id) => this.setState({ selected: id });
-
+  search = (q) => this.setState({query:q});
   applyFilters = (filters) => this.setState({ filters });
 
   filterTrails = (trails, filters) => {
@@ -57,7 +57,7 @@ class App extends Component {
       return html`
         <${Home} search=${this.search} />
         ${
-          !initialLoad && html`
+          query!= undefined && html`
             <div class="main-container">
               <div class="results-section">
                 <div class="main-result">Results for "${query}"</div>
