@@ -7,7 +7,6 @@ import Filters from './filters.js';
 
 class App extends Component {
   state = {
-    query: '',
     trails: [],
     selected: undefined,
     filters: {},
