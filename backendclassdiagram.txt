@@ -12,16 +12,16 @@ class TrailDB {
   search(query: Object): Trail[]
 }
 class Trail {
-  name : String
-  description : String
-  location : String
-  difficulty : Number
-  distance : Number
-  elevationGain : Number
-  elevationMax : Number
-  time : Number
-  path : Object[]
-  images : String[]
+  name: String
+  description: String
+  location: String
+  difficulty: Number
+  distance: Number
+  elevationGain: Number
+  elevationMax: Number
+  time: Number
+  path: Object[]
+  images: String[]
 }
 
 TrailJSON ..|> TrailProvider

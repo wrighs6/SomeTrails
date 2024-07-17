@@ -1,0 +1,52 @@
+@startuml
+class Component {
+  state: Object
+  props: Object
+  render(props, state): HTML
+  componentDidMount()
+  componentWillUnmount()
+  getDerivedStateFromProps(nextProps, prevState): Object
+  shouldComponentUpdate(nextProps, nextState, nextContext): Boolean
+  getSnapshotBeforeUpdate(prevProps, prevState): Object
+  componentDidUpdate(prevProps, prevState, snapshot)
+}
+class App {
+  state: Object
+  props: Object
+  render(props, state): HTML
+  componentDidUpdate(prevProps, prevState, snapshot)
+}
+class Home {
+  state: Object
+  props: Object
+  render(props, state): HTML
+}
+class SearchBar {
+  state: Object
+  props: Object
+  render(props, state): HTML
+}
+class SearchResults {
+  state: Object
+  props: Object
+  render(props, state): HTML
+  componentDidMount()
+  componentDidUpdate(prevProps, prevState, snapshot)
+}
+class TrailDetail {
+  state: Object
+  props: Object
+  render(props, state): HTML
+}
+class Filters {
+  state: Object
+  props: Object
+  render(props, state): HTML
+}
+App -d-|> Component
+Home -d-|> Component
+SearchBar -d-|> Component
+SearchResults -u-|> Component
+TrailDetail -u-|> Component
+Filters -u-|> Component
+@enduml
