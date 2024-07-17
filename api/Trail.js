@@ -46,7 +46,7 @@ class Trail {
     this.difficulty = difficulty;
     this.distance = distance;
     this.elevationGain = elevationGain;
-    this.elevationMax = elevationMax;
+    this.maximumElevation = elevationMax;
     this.time = distance * 30;
     this.path = path;
     this.images = images;

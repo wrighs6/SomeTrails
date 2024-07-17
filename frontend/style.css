@@ -170,6 +170,7 @@ body {
 .result-difficulty,
 .result-distance,
 .result-elevationGain,
+.result-maximumElevation,
 .result-time {
   margin-bottom: 5px;
   font-size: 1rem;
