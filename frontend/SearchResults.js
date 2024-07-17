@@ -36,7 +36,7 @@ export default class SearchResults extends Component {
                 <div class="result-location">Located at: ${result.location}</div>
                 <div class="result-difficulty">Difficulty rating: ${result.difficulty}/5</div>
                 <div class="result-distance">Length of trail: ${result.distance} miles</div>
-                <div class="result-elevationGain">Elevation gain: ${result.elevationGain} feet</div>
+                <div class="result-elevationGain">Elevation gain: ${result.elevationGain} ft</div>
                 <div class="result-time">Estimated time to complete: ${result.time} minutes</div>
               </div>
               <div class="image-container">
