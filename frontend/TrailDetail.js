@@ -4,7 +4,11 @@ import { html } from 'htm/preact';
 export default class TrailDetail extends Component {
   render() {
     console.log(this.props.selected);
-    return html`<div class="trail-detail">
+    return html`
+    <div class="trail-detail">
+      <header>
+        <button onClick=${this.props.back}>Back</button>
+      </header>
       <div class="detail-card">
         <h1>${this.props.selected.name}</h1>
         <p><a href="">${this.props.selected.location}</a></p>
