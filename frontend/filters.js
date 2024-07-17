@@ -32,18 +32,18 @@ export default class Filters extends Component {
             <label for="distance">Distance</label>
             <select id="distance" name="distance" onChange=${this.handleFilterChange}>
               <option value="">Select Distance</option>
-              <option value="short">Short</option>
-              <option value="medium">Medium</option>
-              <option value="long">Long</option>
+              <option value="short">Short (0-5 miles)</option>
+              <option value="medium">Medium (5-10 miles)</option>
+              <option value="long">Long (10+ miles)</option>
             </select>
           </div>
           <div class="dropdown">
             <label for="elevationGain">Elevation Gain</label>
             <select id="elevationGain" name="elevationGain" onChange=${this.handleFilterChange}>
               <option value="">Select Elevation Gain</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+              <option value="low">Low (0-500 feet)</option>
+              <option value="medium">Medium (500-2000 feet)</option>
+              <option value="high">High (2000+ feet)</option>
             </select>
           </div>
         </div>
