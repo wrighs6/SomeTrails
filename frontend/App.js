@@ -4,6 +4,8 @@ import Home from './Home.js';
 import SearchResults from './SearchResults.js';
 import TrailDetail from './TrailDetail.js';
 import Filters from './filters.js';
+import BackToTopButton from './BackToTopButton.js';
+
 
 class App extends Component {
   state = {
@@ -15,7 +17,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.query != this.state.query) {
-      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({text: this.state.query})}`;
+      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({ text: this.state.query })}`;
       fetch(`https://api.${window.location.host}/${qs}`)
         .then(response => response.json())
         .then(data => this.setState({ trails: data }))
@@ -24,7 +26,7 @@ class App extends Component {
   };
 
   select = (id) => this.setState({ selected: id });
-  search = (q) => this.setState({query:q});
+  search = (q) => this.setState({ query: q });
   applyFilters = (filters) => this.setState({ filters });
 
   filterTrails = (trails, filters) => {
@@ -55,8 +57,7 @@ class App extends Component {
     if (selected === undefined) {
       return html`
         <${Home} search=${this.search} />
-        ${
-          query!= undefined && html`
+        ${query != undefined && html`
             <div class="main-container">
               <div class="results-section">
                 <div class="main-result">Results for "${query}"</div>
@@ -72,9 +73,12 @@ class App extends Component {
             </div>
           `
         }
+        <${BackToTopButton} />
       `;
     } else {
-      return html`<${TrailDetail} selected=${trails[selected]} back=${() => this.setState({ selected: undefined })} />`;
+      return html`<${TrailDetail} selected=${trails[selected]} back=${() => this.setState({ selected: undefined })} />
+      <${BackToTopButton} />
+      `;
     }
   }
 }
