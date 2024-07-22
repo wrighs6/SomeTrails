@@ -17,7 +17,7 @@ export default class TrailDetail extends Component {
           <span>Length: ${this.props.selected.distance} Miles</span>
           <span>Time to complete: ${this.props.selected.time} minutes</span>
           <span>Elevation gain: ${this.props.selected.elevationGain} feet</span>
-          <span>Highest elevation: Placeholder</span>
+          <span>Maximum elevation: ${this.props.selected.maximumElevation} feet</span>
         </div>
         <p>${this.props.selected.description}</p>
       </div>
