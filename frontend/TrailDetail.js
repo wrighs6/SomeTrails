@@ -1,6 +1,8 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
+import Map from './Map.js';
+
 export default class TrailDetail extends Component {
   componentDidMount() {
     fetch(`https://api.${window.location.host}/${this.props.selected}`)
@@ -27,6 +29,14 @@ export default class TrailDetail extends Component {
             <span>Maximum elevation: ${data.maximumElevation} feet</span>
           </div>
           <p>${data.description}</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-half">
+            <${Map} path=${data.path} />
+          </div>
+          <div class="detail-half">
+            <p>Images here</p>
+          </div>
         </div>
       </div>`;
   }
