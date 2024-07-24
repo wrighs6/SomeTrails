@@ -74,7 +74,7 @@ class App extends Component {
         }
       `;
     } else {
-      return html`<${TrailDetail} selected=${trails[selected]} back=${() => this.setState({ selected: undefined })} />`;
+      return html`<${TrailDetail} selected=${selected} back=${() => this.setState({ selected: undefined })} />`;
     }
   }
 }

@@ -5,6 +5,9 @@ class TrailProvider {
 
     if (this.search == undefined)
       throw new Error("Method search must be implemented");
+
+    if (this.find == undefined)
+      throw new Error("Method get must be implemented");
   }
 }
 

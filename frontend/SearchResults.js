@@ -32,7 +32,7 @@ export default class SearchResults extends Component {
         ${
           this.props.results != undefined &&
           this.props.results.map((result, index) => html`
-            <div class="result-item" onClick=${() => this.props.select(index)}>
+            <div class="result-item" onClick=${() => this.props.select(result.id)}>
               <div class="result-content">
                 <div class="result-title">${result.name}</div>
                 <div class="result-description">${truncate(result.description)}</div>

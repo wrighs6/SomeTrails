@@ -8,7 +8,7 @@ class TrailJSON extends TrailProvider {
 
   constructor(source) {
     super(source);
-    this.#data = JSON.parse(fs.readFileSync(source, "utf8")).map(d => new Trail(d));
+    this.#data = JSON.parse(fs.readFileSync(source, "utf8")).map((d, i) => new Trail({...d, id: i}));
   }
 
   #keywordSearch(keywords) {
@@ -36,6 +36,10 @@ class TrailJSON extends TrailProvider {
     .map(({occurrences, ...trail}) => trail);
     else
       return this.#data;
+  }
+
+  find(id) {
+    return this.#data.find(t => t.id == id);
   }
 }
 

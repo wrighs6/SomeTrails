@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
   }
 });
 
+app.get("/:id", (req, res) => {
+  res.json(provider.find(req.params.id));
+});
+
 app.listen(80, () => {
   console.log("listening on port 80");
 });
