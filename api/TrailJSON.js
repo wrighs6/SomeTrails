@@ -8,7 +8,7 @@ class TrailJSON extends TrailProvider {
 
   constructor(source) {
     super(source);
-    this.#data = JSON.parse(fs.readFileSync(source, "utf8")).map(d => new Trail(d));
+    this.#data = JSON.parse(fs.readFileSync(source, "utf8")).map((d, i) => new Trail({...d, id: i}));
   }
 
   #keywordSearch(keywords) {
