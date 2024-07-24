@@ -76,9 +76,7 @@ class App extends Component {
         <${BackToTopButton} />
       `;
     } else {
-      return html`<${TrailDetail} selected=${trails[selected]} back=${() => this.setState({ selected: undefined })} />
-      <${BackToTopButton} />
-      `;
+      return html`<${TrailDetail} selected=${selected} back=${() => this.setState({ selected: undefined })} />`;
     }
   }
 }
