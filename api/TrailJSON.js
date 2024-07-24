@@ -37,6 +37,10 @@ class TrailJSON extends TrailProvider {
     else
       return this.#data;
   }
+
+  find(id) {
+    return this.#data.find(t => t.id == id);
+  }
 }
 
 module.exports = TrailJSON;
