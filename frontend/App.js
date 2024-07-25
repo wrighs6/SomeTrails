@@ -13,11 +13,18 @@ class App extends Component {
       difficulty: '',
       distance: '',
       elevationGain: ''
-    },
+    }
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.query != this.state.query) {
+      this.setState({
+        filters: {
+          difficulty: '',
+          distance: '',
+          elevationGain: ''
+        }
+      });
       const qs = this.state.query == "" ? "" : `?${new URLSearchParams({ text: this.state.query })}`;
       fetch(`https://api.${window.location.host}/${qs}`)
         .then(response => response.json())
