@@ -6,13 +6,14 @@ import TrailDetail from './TrailDetail.js';
 import Filters from './filters.js';
 import BackToTopButton from './BackToTopButton.js';
 
-
 class App extends Component {
   state = {
     trails: [],
-    selected: undefined,
-    filters: {},
-    initialLoad: true,
+    filters: {
+      difficulty: '',
+      distance: '',
+      elevationGain: ''
+    },
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -51,7 +52,7 @@ class App extends Component {
   };
 
   render() {
-    const { trails, selected, query, filters, initialLoad } = this.state;
+    const { trails, selected, query, filters } = this.state;
     const filteredTrails = this.filterTrails(trails, filters);
 
     if (selected === undefined) {
@@ -63,7 +64,7 @@ class App extends Component {
                 <div class="main-result">Results for "${query}"</div>
                 <div class="filters-and-results">
                   <div class="filters-container">
-                    <${Filters} onFilterChange=${this.applyFilters} />
+                    <${Filters} filters=${filters} onFilterChange=${this.applyFilters} />
                   </div>
                   <div class="results-container">
                     <${SearchResults} results=${filteredTrails} query=${query} select=${this.select} />
