@@ -6,6 +6,8 @@ import TrailDetail from './TrailDetail.js';
 import Filters from './filters.js';
 import BackToTopButton from './BackToTopButton.js';
 
+  
+
 
 class App extends Component {
   state = {
@@ -13,6 +15,7 @@ class App extends Component {
     selected: undefined,
     filters: {},
     initialLoad: true,
+    
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -78,7 +81,10 @@ class App extends Component {
     } else {
       return html`<${TrailDetail} selected=${selected} back=${() => this.setState({ selected: undefined })} />`;
     }
+    
   }
+
 }
+
 
 render(html`<${App} />`, document.body);
