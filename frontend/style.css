@@ -146,7 +146,15 @@ body {
   flex: 1;
   margin-left: auto;
 }
-
+.clear-header {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  padding: 0px;
+  background-color: #f8f9fa;
+  border: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .image-container {
   width: 400px;
   height: 250px;
