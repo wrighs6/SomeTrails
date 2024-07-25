@@ -5,13 +5,15 @@ export default class Filters extends Component {
   state = {
     difficulty: '',
     distance: '',
-    elevationGain: ''
+    elevationGain: '',
+    showNotification: false,
   };
 
   handleFilterChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value }, () => {
+    this.setState({ [name]: value, showNotification: true }, () => {
       this.props.onFilterChange(this.state);
+      this.hideNotification();
     });
   }
 
@@ -19,15 +21,29 @@ export default class Filters extends Component {
     this.setState({
       difficulty: '',
       distance: '',
-      elevationGain: ''
+      elevationGain: '',
+      showNotification: true,
     }, () => {
       this.props.onFilterChange(this.state);
+      this.hideNotification();
     });
   }
 
+  hideNotification = () => {
+    setTimeout(() => {
+      this.setState({ showNotification: false });
+    }, 2000); // Keep notification visible for 4 seconds (matching the CSS animation duration)
+  }
+
   render() {
+    const { showNotification } = this.state;
     return html`
       <div class="filters-container">
+        ${showNotification && html`
+          <div class="notification">
+            Filter applied!
+          </div>
+        `}
         <header class="clear-header">
           <button id="clear-filters-button" onClick=${this.handleClear}>Clear</button>
         </header>

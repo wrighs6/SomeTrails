@@ -11,14 +11,12 @@ class App extends Component {
     trails: [],
     selected: undefined,
     filters: {},
-    query: '',
-    searchTriggered: false,  // New state to track if a search was triggered
     initialLoad: true,
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query && this.state.searchTriggered) {
-      const qs = this.state.query === '' ? '' : `?${new URLSearchParams({ text: this.state.query })}`;
+    if (prevState.query !== this.state.query) {
+      const qs = this.state.query === undefined ? '' : `?${new URLSearchParams({ text: this.state.query })}`;
       fetch(`https://api.${window.location.host}/${qs}`)
         .then(response => response.json())
         .then(data => this.setState({ trails: data }))
@@ -29,7 +27,7 @@ class App extends Component {
   select = (id) => this.setState({ selected: id });
   
   search = (q) => {
-    this.setState({ query: q, searchTriggered: true });  // Set searchTriggered to true
+    this.setState({ query: q });  // Set searchTriggered to true
   };
 
   applyFilters = (filters) => this.setState({ filters });
@@ -56,14 +54,14 @@ class App extends Component {
   };
 
   render() {
-    const { trails, selected, query, filters, searchTriggered } = this.state;
+    const { trails, selected, query, filters } = this.state;
     const filteredTrails = this.filterTrails(trails, filters);
     const resultsText = `${filteredTrails.length > 0 ? filteredTrails.length : 'No'} Result${filteredTrails.length !== 1 ? 's' : ''} for "${query}"`;
 
     if (selected === undefined) {
       return html`
         <${Home} search=${this.search} />
-        ${searchTriggered && html`
+        ${query !== undefined && html`
           <div class="main-container">
             <div class="results-section">
               <div class="main-result">${resultsText}</div>
