@@ -51,39 +51,48 @@ const dotStyle = {
 
 export default class ImageSlideshow extends Component {
   //const [currentIndex, setCurrentIndex] = 0;
-  index = {
+  state = {
     currentIndex: 0,
     setCurrentIndex: 0,
   };
-  goToPrevious = () => {
+  goToPrevious(){
     const isFirstSlide = this.currentIndex === 0;
     const newIndex = isFirstSlide ? this.props.slides.length - 1 : this.currentIndex - 1;
-    this.setCurrentIndex(newIndex);
+    this.setCurrentIndex = newIndex;
   };
-  goToNext = () => {
+  goToNext(){
     const isLastSlide = this.currentIndex === this.props.slides.length - 1;
     const newIndex = isLastSlide ? 0 : this.currentIndex + 1;
-    this.setCurrentIndex(newIndex);
+    this.setCurrentIndex = newIndex;
   };
   goToSlide = (slideIndex) => {
-    this.setCurrentIndex(slideIndex);
+    this.setCurrentIndex = slideIndex;
   };
+  // slideStylesWidthBackground = {
+  //   ...slideStyles,
+  //   backgroundImage: `url(${this.props.slides[this.currentIndex].url})`,
+  // };
+
   slideStylesWidthBackground = {
     ...slideStyles,
-    backgroundImage: `url(${this.props.slides[this.currentIndex].url})`,
+    backgroundImage: this.props.slides && this.props.slides[this.currentIndex] 
+      ? `url(${this.props.slides[this.currentIndex].url})` 
+      : 'url(https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg)', // Fallback URL
   };
+
 render() {
+  console.log(this.props.slides);
   return html`
     <div style=${slideshowStyles}>
       <div>
-        <div onClick=${goToPrevious} style=${leftArrowStyles}>
+        <div onClick=${this.goToPrevious()} style=${leftArrowStyles}>
           ❰
         </div>
-        <div onClick=${goToNext} style=${rightArrowStyles}>
+        <div onClick=${this.goToNext()} style=${rightArrowStyles}>
           ❱
         </div>
       </div>
-      <div style=${slideStylesWidthBackground}></div>
+      <div style=${this.slideStylesWidthBackground}></div>
       <div style=${dotsContainerStyles}>
         ${this.props.slides.map((slide, slideIndex) => (
           html`<div
