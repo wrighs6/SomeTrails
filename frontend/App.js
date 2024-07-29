@@ -9,14 +9,23 @@ import BackToTopButton from './BackToTopButton.js';
 class App extends Component {
   state = {
     trails: [],
-    selected: undefined,
-    filters: {},
-    initialLoad: true,
+    filters: {
+      difficulty: '',
+      distance: '',
+      elevationGain: ''
+    }
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.query !== this.state.query) {
-      const qs = this.state.query === undefined ? '' : `?${new URLSearchParams({ text: this.state.query })}`;
+      this.setState({
+        filters: {
+          difficulty: '',
+          distance: '',
+          elevationGain: ''
+        }
+      });
+      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({ text: this.state.query })}`;
       fetch(`https://api.${window.location.host}/${qs}`)
         .then(response => response.json())
         .then(data => this.setState({ trails: data }))
@@ -27,7 +36,7 @@ class App extends Component {
   select = (id) => this.setState({ selected: id });
   
   search = (q) => {
-    this.setState({ query: q });  // Set searchTriggered to true
+    this.setState({ query: q });
   };
 
   applyFilters = (filters) => this.setState({ filters });
@@ -64,10 +73,10 @@ class App extends Component {
         ${query !== undefined && html`
           <div class="main-container">
             <div class="results-section">
-              <div class="main-result">${resultsText}</div>
+            <div class="main-result">${resultsText}</div>
               <div class="filters-and-results">
                 <div class="filters-container">
-                  <${Filters} onFilterChange=${this.applyFilters} />
+                  <${Filters} filters=${filters} onFilterChange=${this.applyFilters} />
                 </div>
                 <div class="results-container">
                   <${SearchResults} results=${filteredTrails} query=${query} select=${this.select} />
