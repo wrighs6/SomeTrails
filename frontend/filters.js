@@ -6,6 +6,7 @@ export default class Filters extends Component {
     const { name, value } = event.target;
     this.props.filters[name] = value
     this.props.onFilterChange(this.props.filters);
+    this.setState({ showNotification: true });
     this.hideNotification();
   }
 
