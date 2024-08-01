@@ -1,6 +1,8 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
+const formatNumber = (number) => parseFloat(number).toFixed(2);
+
 export default class TrailDetail extends Component {
   componentDidMount() {
     fetch(`https://api.${window.location.host}/${this.props.selected}`)
@@ -21,10 +23,10 @@ export default class TrailDetail extends Component {
           <p><a href="">${data.location}</a></p>
           <div class="detail-stats">
             <span>Difficulty: ${data.difficulty}</span>
-            <span>Length: ${data.distance} Miles</span>
-            <span>Time to complete: ${data.time} minutes</span>
-            <span>Elevation gain: ${data.elevationGain} feet</span>
-            <span>Maximum elevation: ${data.maximumElevation} feet</span>
+            <span>Length: ${formatNumber(data.distance)} Miles</span>
+            <span>Time to complete: ${parseFloat(data.time).toFixed()} minutes</span>
+            <span>Elevation gain: ${formatNumber(data.elevationGain)} feet</span>
+            <span>Maximum elevation: ${formatNumber(data.maximumElevation)} feet</span>
           </div>
           <p>${data.description}</p>
         </div>
