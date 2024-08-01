@@ -9,10 +9,6 @@ const truncate = (input) => input.length > 400 ? `${input.substring(0, 400)}... 
 const formatNumber = (number) => parseFloat(number).toFixed(2);
 
 export default class SearchResults extends Component {
-  state = {
-    slides: [],
-  };
-
   scrollToSearchResults() {
     const homeSection = document.querySelector('.home');
     const offset = homeSection.getBoundingClientRect().bottom + window.scrollY + 30;
@@ -54,11 +50,11 @@ export default class SearchResults extends Component {
                 <div class="result-distance">Length of trail: ${formatNumber(result.distance)} miles</div>
                 <div class="result-elevationGain">Elevation gain: ${formatNumber(result.elevationGain)} ft</div>
                 <div class="result-maximumElevation">Maximum elevation: ${formatNumber(result.maximumElevation)} ft</div>
-                <div class="result-time">Estimated time to complete: ${formatNumber(result.time)} minutes</div>
+                <div class="result-time">Estimated time to complete: ${parseFloat(result.time).toFixed()} minutes</div>
               </div>
-                <div style=${containerStyles}>
-                  <${ImageSlideshow} slides=${slides} />
-                </div>
+              <div style=${containerStyles}>
+                <${ImageSlideshow} slides=${slides} />
+              </div>
             </div>
           `)
         }

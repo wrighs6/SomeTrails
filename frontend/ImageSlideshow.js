@@ -50,23 +50,21 @@ const dotStyle = {
 
 
 export default class ImageSlideshow extends Component {
-  //const [currentIndex, setCurrentIndex] = 0;
   state = {
     currentIndex: 0,
-    setCurrentIndex: 0,
   };
   goToPrevious(){
-    const isFirstSlide = this.currentIndex === 0;
-    const newIndex = isFirstSlide ? this.props.slides.length - 1 : this.currentIndex - 1;
-    this.setCurrentIndex = newIndex;
+    const isFirstSlide = this.state.currentIndex === 0;
+    const newIndex = isFirstSlide ? this.props.slides.length - 1 : this.state.currentIndex - 1;
+    this.state.currentIndex = newIndex;
   };
   goToNext(){
-    const isLastSlide = this.currentIndex === this.props.slides.length - 1;
-    const newIndex = isLastSlide ? 0 : this.currentIndex + 1;
-    this.setCurrentIndex = newIndex;
+    const isLastSlide = this.state.currentIndex === this.props.slides.length - 1;
+    const newIndex = isLastSlide ? 0 : this.state.currentIndex + 1;
+    this.state.currentIndex = newIndex;
   };
   goToSlide = (slideIndex) => {
-    this.setCurrentIndex = slideIndex;
+    this.state.currentIndex = slideIndex;
   };
   // slideStylesWidthBackground = {
   //   ...slideStyles,
@@ -75,20 +73,19 @@ export default class ImageSlideshow extends Component {
 
   slideStylesWidthBackground = {
     ...slideStyles,
-    backgroundImage: this.props.slides && this.props.slides[this.currentIndex] 
-      ? `url(${this.props.slides[this.currentIndex].url})` 
+    backgroundImage: this.props.slides && this.props.slides[this.state.currentIndex] 
+      ? `url(${this.props.slides[this.state.currentIndex].url})` 
       : 'url(https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg)', // Fallback URL
   };
 
 render() {
-  console.log(this.props.slides);
   return html`
-    <div style=${slideshowStyles}>
+    <div style=${slideshowStyles} onClick=${event => event.stopPropagation()}>
       <div>
-        <div onClick=${this.goToPrevious()} style=${leftArrowStyles}>
+        <div onClick=${this.goToPrevious} style=${leftArrowStyles}>
           ❰
         </div>
-        <div onClick=${this.goToNext()} style=${rightArrowStyles}>
+        <div onClick=${this.goToNext} style=${rightArrowStyles}>
           ❱
         </div>
       </div>
@@ -98,13 +95,13 @@ render() {
           html`<div
             style=${dotStyle}
             key=${slideIndex}
-            onClick={() => goToSlide(slideIndex)}
+            onClick=${() => this.goToSlide(slideIndex)}
           >
             ●
           </div>`
         ))}
       </div>
     </div>
-  `
+  `;
 }
 };
