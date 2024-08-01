@@ -24,7 +24,7 @@ export default class TrailDetail extends Component {
           <div class="detail-stats">
             <span>Difficulty: ${data.difficulty}</span>
             <span>Length: ${formatNumber(data.distance)} Miles</span>
-            <span>Time to complete: ${formatNumber(data.time)} minutes</span>
+            <span>Time to complete: ${parseFloat(data.time).toFixed()} minutes</span>
             <span>Elevation gain: ${formatNumber(data.elevationGain)} feet</span>
             <span>Maximum elevation: ${formatNumber(data.maximumElevation)} feet</span>
           </div>
