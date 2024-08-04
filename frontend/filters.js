@@ -2,34 +2,54 @@ import { Component } from 'preact';
 import { html } from 'htm/preact';
 
 export default class Filters extends Component {
+  state = {
+    showNotification: false,
+    sortOrder: '',
+    difficulty: '',
+    distance: '',
+    elevationGain: '',
+    maximumElevation: '',
+    time: ''
+  };
+
   handleFilterChange = (event) => {
     const { name, value } = event.target;
-    this.props.filters[name] = value
-    this.props.onFilterChange(this.props.filters);
-    this.setState({ showNotification: true });
+    this.setState({ [name]: value, showNotification: true });
+    this.props.onFilterChange({ ...this.state, [name]: value });
     this.hideNotification();
-  }
+  };
+
+  handleSortChange = (event) => {
+    const { value } = event.target;
+    this.setState({ sortOrder: value, showNotification: true });
+    this.props.onSortChange(value);
+    this.hideNotification();
+  };
 
   handleClear = () => {
     this.setState({
       difficulty: '',
       distance: '',
       elevationGain: '',
+      maximumElevation: '',
+      time: '',
+      sortOrder: '',
       showNotification: true,
     }, () => {
       this.props.onFilterChange(this.state);
+      this.props.onSortChange('');
       this.hideNotification();
     });
-  }
+  };
 
   hideNotification = () => {
     setTimeout(() => {
       this.setState({ showNotification: false });
-    }, 2000); // Keep notification visible for 4 seconds (matching the CSS animation duration)
-  }
+    }, 2000);
+  };
 
   render() {
-    const { showNotification } = this.state;
+    const { showNotification, difficulty, distance, elevationGain, maximumElevation, time, sortOrder } = this.state;
     return html`
       <div class="filters-container">
         ${showNotification && html`
@@ -43,7 +63,7 @@ export default class Filters extends Component {
         <div class="filters">
           <div class="dropdown">
             <label for="difficulty">Difficulty</label>
-            <select value=${this.props.filters.difficulty} id="difficulty" name="difficulty" onInput=${this.handleFilterChange}>
+            <select value=${difficulty} id="difficulty" name="difficulty" onInput=${this.handleFilterChange}>
               <option value="">Select Difficulty</option>
               <option value="easy">Easy</option>
               <option value="moderate">Moderate</option>
@@ -52,7 +72,7 @@ export default class Filters extends Component {
           </div>
           <div class="dropdown">
             <label for="distance">Distance</label>
-            <select value=${this.props.filters.distance} id="distance" name="distance" onInput=${this.handleFilterChange}>
+            <select value=${distance} id="distance" name="distance" onInput=${this.handleFilterChange}>
               <option value="">Select Distance</option>
               <option value="short">Short (0-5 miles)</option>
               <option value="medium">Medium (5-10 miles)</option>
@@ -61,11 +81,43 @@ export default class Filters extends Component {
           </div>
           <div class="dropdown">
             <label for="elevationGain">Elevation Gain</label>
-            <select value=${this.props.filters.elevationGain} id="elevationGain" name="elevationGain" onInput=${this.handleFilterChange}>
+            <select value=${elevationGain} id="elevationGain" name="elevationGain" onInput=${this.handleFilterChange}>
               <option value="">Select Elevation Gain</option>
               <option value="low">Low (0-500 feet)</option>
               <option value="medium">Medium (500-2000 feet)</option>
               <option value="high">High (2000+ feet)</option>
+            </select>
+          </div>
+          <div class="dropdown">
+            <label for="maximumElevation">Max Elevation</label>
+            <select value=${maximumElevation} id="maximumElevation" name="maximumElevation" onInput=${this.handleFilterChange}>
+              <option value="">Select Max Elevation</option>
+              <option value="low">Low (0-100 feet)</option>
+              <option value="medium">Medium (100-450 feet)</option>
+              <option value="high">High (450+ feet)</option>
+            </select>
+          </div>
+          <div class="dropdown">
+            <label for="time">Estimated Time</label>
+            <select value=${time} id="time" name="time" onInput=${this.handleFilterChange}>
+              <option value="">Select Estimated Time</option>
+              <option value="short">0-20 minutes</option>
+              <option value="medium">20-60 minutes</option>
+              <option value="long">60+ minutes</option>
+            </select>
+          </div>
+          <div class="dropdown">
+            <label for="sortOrder">Sort by</label>
+            <select value=${sortOrder} id="sortOrder" name="sortOrder" onInput=${this.handleSortChange}>
+              <option value="">Select Order</option>
+              <option value="distance-asc">Distance (Ascending)</option>
+              <option value="distance-desc">Distance (Descending)</option>
+              <option value="elevationGain-asc">Elevation Gain (Ascending)</option>
+              <option value="elevationGain-desc">Elevation Gain (Descending)</option>
+              <option value="maximumElevation-asc">Max Elevation (Ascending)</option>
+              <option value="maximumElevation-desc">Max Elevation (Descending)</option>
+              <option value="time-asc">Estimated Time (Ascending)</option>
+              <option value="time-desc">Estimated Time (Descending)</option>
             </select>
           </div>
         </div>
