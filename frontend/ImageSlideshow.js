@@ -16,7 +16,7 @@ const rightArrowStyles = {
   transform: "translate(0, -50%)",
   right: "32px",
   fontSize: "45px",
-  color: "#fff",
+  color: "#000",
   zIndex: 1,
   cursor: "pointer",
 };
@@ -27,7 +27,7 @@ const leftArrowStyles = {
   transform: "translate(0, -50%)",
   left: "32px",
   fontSize: "45px",
-  color: "#fff",
+  color: "#000",
   zIndex: 1,
   cursor: "pointer",
 };
@@ -48,37 +48,52 @@ const dotStyle = {
   fontSize: "20px",
 };
 
-
+//const [currentIndex, setCurrentIndex] = useState(0);
 export default class ImageSlideshow extends Component {
+  
   state = {
-    currentIndex: 0,
+    currentIndex: 0
+
   };
-  goToPrevious(){
-    const isFirstSlide = this.state.currentIndex === 0;
+  goToPrevious = () => {
+    // if (this.state.currentIndex == 0){
+    //   const isFirstSlide = this.state.currentIndex;
+    // }
+    const isFirstSlide = this.state.currentIndex == 0;
     const newIndex = isFirstSlide ? this.props.slides.length - 1 : this.state.currentIndex - 1;
-    this.state.currentIndex = newIndex;
+    this.setState({currentIndex: newIndex})
   };
-  goToNext(){
-    const isLastSlide = this.state.currentIndex === this.props.slides.length - 1;
+  goToNext = () => {
+    const isLastSlide = this.state.currentIndex == this.props.slides.length - 1;
     const newIndex = isLastSlide ? 0 : this.state.currentIndex + 1;
-    this.state.currentIndex = newIndex;
+    this.setState({ currentIndex: newIndex });
+
   };
   goToSlide = (slideIndex) => {
-    this.state.currentIndex = slideIndex;
+    this.setState({ currentIndex: slideIndex });
   };
   // slideStylesWidthBackground = {
   //   ...slideStyles,
   //   backgroundImage: `url(${this.props.slides[this.currentIndex].url})`,
   // };
 
-  slideStylesWidthBackground = {
+  // slideStylesWidthBackground = {
+  //   ...slideStyles,
+  //   backgroundImage: this.props.slides && this.props.slides[this.state.currentIndex] 
+  //     ? `url(${this.props.slides[this.state.currentIndex]})` 
+  //     : 'url(https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg)', // Fallback URL
+  // };
+
+render() {
+  const slideStylesWidthBackground = {
     ...slideStyles,
-    backgroundImage: this.props.slides && this.props.slides[this.state.currentIndex] 
-      ? `url(${this.props.slides[this.state.currentIndex].url})` 
+    backgroundImage: this.props.slides && this.props.slides[this.state.currentIndex]
+      ? `url(${this.props.slides[this.state.currentIndex]})`
       : 'url(https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg)', // Fallback URL
   };
 
-render() {
+  console.log(slideStylesWidthBackground.backgroundImage);
+
   return html`
     <div style=${slideshowStyles} onClick=${event => event.stopPropagation()}>
       <div>
@@ -89,7 +104,7 @@ render() {
           ❱
         </div>
       </div>
-      <div style=${this.slideStylesWidthBackground}></div>
+      <div style=${slideStylesWidthBackground}></div>
       <div style=${dotsContainerStyles}>
         ${this.props.slides.map((slide, slideIndex) => (
           html`<div

@@ -30,7 +30,9 @@ export default class SearchResults extends Component {
     const slides = [
       { url: "https://www.tastingtable.com/img/gallery/how-does-baby-arugula-compare-to-regular-arugula/intro-1678995762.jpg", title: "arugula" },
       { url: "https://www.allrecipes.com/thmb/TkTP3fQnTpMhNtC_n4HMmCsIwsE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/222352-jamies-sweet-and-easy-corn-on-the-cob-rae-3x2-1-de041c9cd6ab4b40808368dc5cd96757.jpg", title: "corn" },
+      { url: "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2021/04/23175719/shutterstock_440493100-1.jpg", title: "carrots" },
     ];
+    
     const containerStyles = {
       width: "500px",
       height: "280px",
@@ -53,7 +55,7 @@ export default class SearchResults extends Component {
                 <div class="result-time">Estimated time to complete: ${parseFloat(result.time).toFixed()} minutes</div>
               </div>
               <div style=${containerStyles}>
-                <${ImageSlideshow} slides=${slides} />
+                <${ImageSlideshow} slides=${result.images} />
               </div>
             </div>
           `)
