@@ -4,10 +4,11 @@ import { html } from 'htm/preact';
 
 const slideStyles = {
   width: "100%",
-  height: "100%",
+  height: "90%",
   borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
+  position: "relative"
 };
 
 const rightArrowStyles = {
@@ -33,13 +34,12 @@ const leftArrowStyles = {
 };
 
 const slideshowStyles = {
-  position: "relative",
-  height: "100%",
+  height: "100%"
 };
 
 const dotsContainerStyles = {
-  display: "flex",
-  justifyContent: "center",
+  width: "100%",
+  textAlign: "center"
 };
 
 const dotStyle = {
@@ -96,7 +96,7 @@ render() {
 
   return html`
     <div style=${slideshowStyles} onClick=${event => event.stopPropagation()}>
-      <div>
+      <div style=${slideStylesWidthBackground}>
         <div onClick=${this.goToPrevious} style=${leftArrowStyles}>
           ❰
         </div>
@@ -104,16 +104,15 @@ render() {
           ❱
         </div>
       </div>
-      <div style=${slideStylesWidthBackground}></div>
       <div style=${dotsContainerStyles}>
         ${this.props.slides.map((slide, slideIndex) => (
-          html`<div
+          html`<span
             style=${dotStyle}
             key=${slideIndex}
             onClick=${() => this.goToSlide(slideIndex)}
           >
             ●
-          </div>`
+          </span>`
         ))}
       </div>
     </div>

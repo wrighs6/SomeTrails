@@ -309,7 +309,6 @@ body {
   /* Ensure no extra margin if nested */
 }
 
-
 .dropdown {
   position: relative;
 }
@@ -328,14 +327,15 @@ body {
 }
 
 #map {
-  height: 360px;
+  height: 100%;
 }
 
 .detail-half {
   box-sizing: border-box;
   float: left;
   padding: 10px;
-  width: 50%
+  width: 50%;
+  height: 360px;
 }
 
 /* back to top button */

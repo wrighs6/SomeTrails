@@ -64,8 +64,3 @@ export default class SearchResults extends Component {
     `;
   }
 }
-
-
-{/* <div class="image-container">
-                <img class="result-image" src=${result.images[0]} alt=${result.title} />
-              </div> */}
