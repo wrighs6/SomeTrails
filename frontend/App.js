@@ -4,27 +4,41 @@ import Home from './Home.js';
 import SearchResults from './SearchResults.js';
 import TrailDetail from './TrailDetail.js';
 import Filters from './filters.js';
+import BackToTopButton from './BackToTopButton.js';
 
 class App extends Component {
   state = {
     trails: [],
-    selected: undefined,
-    filters: {},
-    initialLoad: true,
+    filters: {
+      difficulty: '',
+      distance: '',
+      elevationGain: ''
+    }
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.query != this.state.query) {
-      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({text: this.state.query})}`;
+    if (prevState.query !== this.state.query) {
+      this.setState({
+        filters: {
+          difficulty: '',
+          distance: '',
+          elevationGain: ''
+        }
+      });
+      const qs = this.state.query == "" ? "" : `?${new URLSearchParams({ text: this.state.query })}`;
       fetch(`https://api.${window.location.host}/${qs}`)
         .then(response => response.json())
         .then(data => this.setState({ trails: data }))
         .catch(error => console.error('Error fetching data:', error));
-    };
-  };
+    }
+  }
 
   select = (id) => this.setState({ selected: id });
-  search = (q) => this.setState({query:q});
+  
+  search = (q) => {
+    this.setState({ query: q });
+  };
+
   applyFilters = (filters) => this.setState({ filters });
 
   filterTrails = (trails, filters) => {
@@ -49,29 +63,29 @@ class App extends Component {
   };
 
   render() {
-    const { trails, selected, query, filters, initialLoad } = this.state;
+    const { trails, selected, query, filters } = this.state;
     const filteredTrails = this.filterTrails(trails, filters);
+    const resultsText = `${filteredTrails.length > 0 ? filteredTrails.length : 'No'} Result${filteredTrails.length !== 1 ? 's' : ''} for "${query}"`;
 
     if (selected === undefined) {
       return html`
         <${Home} search=${this.search} />
-        ${
-          query!= undefined && html`
-            <div class="main-container">
-              <div class="results-section">
-                <div class="main-result">Results for "${query}"</div>
-                <div class="filters-and-results">
-                  <div class="filters-container">
-                    <${Filters} onFilterChange=${this.applyFilters} />
-                  </div>
-                  <div class="results-container">
-                    <${SearchResults} results=${filteredTrails} query=${query} select=${this.select} />
-                  </div>
+        ${query !== undefined && html`
+          <div class="main-container">
+            <div class="results-section">
+            <div class="main-result">${resultsText}</div>
+              <div class="filters-and-results">
+                <div class="filters-container">
+                  <${Filters} filters=${filters} onFilterChange=${this.applyFilters} />
+                </div>
+                <div class="results-container">
+                  <${SearchResults} results=${filteredTrails} query=${query} select=${this.select} />
                 </div>
               </div>
             </div>
-          `
-        }
+          </div>
+        `}
+        <${BackToTopButton} />
       `;
     } else {
       return html`<${TrailDetail} selected=${selected} back=${() => this.setState({ selected: undefined })} />`;
