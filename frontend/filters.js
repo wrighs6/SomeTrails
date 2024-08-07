@@ -3,43 +3,34 @@ import { html } from 'htm/preact';
 
 export default class Filters extends Component {
   state = {
-    showNotification: false,
-    sortOrder: '',
-    difficulty: '',
-    distance: '',
-    elevationGain: '',
-    maximumElevation: '',
-    time: ''
+    showNotification: false
   };
 
   handleFilterChange = (event) => {
+    this.setState({ showNotification: true });
     const { name, value } = event.target;
-    this.setState({ [name]: value, showNotification: true });
-    this.props.onFilterChange({ ...this.state, [name]: value });
+    this.props.onFilterChange({ ...this.props.filters, [name]: value });
     this.hideNotification();
   };
 
   handleSortChange = (event) => {
+    this.setState({ showNotification: true });
     const { value } = event.target;
-    this.setState({ sortOrder: value, showNotification: true });
     this.props.onSortChange(value);
     this.hideNotification();
   };
 
   handleClear = () => {
-    this.setState({
+    this.setState({ showNotification: true });
+    this.props.onFilterChange({
       difficulty: '',
       distance: '',
       elevationGain: '',
       maximumElevation: '',
-      time: '',
-      sortOrder: '',
-      showNotification: true,
-    }, () => {
-      this.props.onFilterChange(this.state);
-      this.props.onSortChange('');
-      this.hideNotification();
+      time: ''
     });
+    this.props.onSortChange('');
+    this.hideNotification();
   };
 
   hideNotification = () => {
@@ -49,7 +40,9 @@ export default class Filters extends Component {
   };
 
   render() {
-    const { showNotification, difficulty, distance, elevationGain, maximumElevation, time, sortOrder } = this.state;
+    const { showNotification } = this.state;
+    const { difficulty, distance, elevationGain, maximumElevation, time } = this.props.filters;
+    const sortOrder = this.props.sortOrder;
     return html`
       <div class="filters-container">
         ${showNotification && html`
