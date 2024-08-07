@@ -1,7 +1,11 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
+import { useState } from 'preact/hooks'
 
 const formatNumber = (number) => parseFloat(number).toFixed(2);
+
+import Map from './Map.js';
+import ImageSlideshow from "./ImageSlideshow.js";
 
 export default class TrailDetail extends Component {
   componentDidMount() {
@@ -29,6 +33,14 @@ export default class TrailDetail extends Component {
             <span>Maximum elevation: ${formatNumber(data.maximumElevation)} feet</span>
           </div>
           <p>${data.description}</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-half">
+            <${Map} path=${data.path} />
+          </div>
+          <div class="detail-half">
+            <${ImageSlideshow} slides=${data.images} />
+          </div>
         </div>
       </div>`;
   }

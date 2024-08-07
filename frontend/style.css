@@ -282,8 +282,10 @@ body {
 }
 
 .detail-card {
+  overflow: auto;
   background-color: beige;
-  padding: 10px 20px;
+  margin: 10px;
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -307,7 +309,6 @@ body {
   /* Ensure no extra margin if nested */
 }
 
-
 .dropdown {
   position: relative;
 }
@@ -323,6 +324,18 @@ body {
   border-radius: 5px;
   border: 1px solid #ccc;
   outline: none;
+}
+
+#map {
+  height: 100%;
+}
+
+.detail-half {
+  box-sizing: border-box;
+  float: left;
+  padding: 10px;
+  width: 50%;
+  height: 360px;
 }
 
 /* back to top button */
