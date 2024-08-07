@@ -306,8 +306,6 @@ body {
 
 /* Filters Section */
 .filters {
-  display: flex;
-  flex-direction: column;
   gap: 0.5em;
   background-color: rgb(255, 255, 255);
   /* Ensure no background color if nested */

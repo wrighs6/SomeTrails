@@ -27,7 +27,9 @@ export default class Filters extends Component {
       distance: '',
       elevationGain: '',
       maximumElevation: '',
-      time: ''
+      time: '',
+      tagsSelected: [],
+      tagsExcluded: []
     });
     this.props.onSortChange('');
     this.hideNotification();
@@ -41,8 +43,9 @@ export default class Filters extends Component {
 
   render() {
     const { showNotification } = this.state;
-    const { difficulty, distance, elevationGain, maximumElevation, time } = this.props.filters;
+    const { difficulty, distance, elevationGain, maximumElevation, time, tagsSelected, tagsExcluded } = this.props.filters;
     const sortOrder = this.props.sortOrder;
+    const tags = this.props.tags;
     return html`
       <div class="filters-container">
         ${showNotification && html`
@@ -54,6 +57,20 @@ export default class Filters extends Component {
           <button id="clear-filters-button" onClick=${this.handleClear}>Clear</button>
         </header>
         <div class="filters">
+          <div class="dropdown">
+            <label for="sortOrder">Sort by</label>
+            <select value=${sortOrder} id="sortOrder" name="sortOrder" onInput=${this.handleSortChange}>
+              <option value="">Select Order</option>
+              <option value="distance-asc">Distance (Ascending)</option>
+              <option value="distance-desc">Distance (Descending)</option>
+              <option value="elevationGain-asc">Elevation Gain (Ascending)</option>
+              <option value="elevationGain-desc">Elevation Gain (Descending)</option>
+              <option value="maximumElevation-asc">Max Elevation (Ascending)</option>
+              <option value="maximumElevation-desc">Max Elevation (Descending)</option>
+              <option value="time-asc">Estimated Time (Ascending)</option>
+              <option value="time-desc">Estimated Time (Descending)</option>
+            </select>
+          </div>
           <div class="dropdown">
             <label for="difficulty">Difficulty</label>
             <select value=${difficulty} id="difficulty" name="difficulty" onInput=${this.handleFilterChange}>
@@ -99,20 +116,28 @@ export default class Filters extends Component {
               <option value="long">60+ minutes</option>
             </select>
           </div>
-          <div class="dropdown">
-            <label for="sortOrder">Sort by</label>
-            <select value=${sortOrder} id="sortOrder" name="sortOrder" onInput=${this.handleSortChange}>
-              <option value="">Select Order</option>
-              <option value="distance-asc">Distance (Ascending)</option>
-              <option value="distance-desc">Distance (Descending)</option>
-              <option value="elevationGain-asc">Elevation Gain (Ascending)</option>
-              <option value="elevationGain-desc">Elevation Gain (Descending)</option>
-              <option value="maximumElevation-asc">Max Elevation (Ascending)</option>
-              <option value="maximumElevation-desc">Max Elevation (Descending)</option>
-              <option value="time-asc">Estimated Time (Ascending)</option>
-              <option value="time-desc">Estimated Time (Descending)</option>
-            </select>
-          </div>
+          ${tags.map(tag => {
+            return html`<div>
+              <input
+                type="checkbox"
+                checked=${tagsSelected.includes(tag)}
+                indeterminate=${tagsExcluded.includes(tag)}
+                onInput=${e => {
+                  e.preventDefault();
+                  if (tagsSelected.includes(tag)) {
+                    tagsSelected.splice(tagsSelected.indexOf(tag), 1);
+                    tagsExcluded.push(tag);
+                  } else if (tagsExcluded.includes(tag)) {
+                    tagsExcluded.splice(tagsExcluded.indexOf(tag), 1);
+                  } else {
+                    tagsSelected.push(tag);
+                  }
+                  this.props.onFilterChange({ ...this.props.filters, tagsSelected, tagsExcluded });
+                }}
+              />
+              <label>${tag}</label>
+            </div>`
+          })}
         </div>
       </div>
     `;

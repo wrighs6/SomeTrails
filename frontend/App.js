@@ -15,6 +15,8 @@ class App extends Component {
       elevationGain: '',
       maximumElevation: '',
       time: '',
+      tagsSelected: [],
+      tagsExcluded: []
     },
     sortOrder: '', // Add sortOrder state
   };
@@ -28,6 +30,8 @@ class App extends Component {
           elevationGain: '',
           maximumElevation: '',
           time: '',
+          tagsSelected: [],
+          tagsExcluded: []
         },
         sortOrder: '', // Reset sortOrder when query changes
       });
@@ -76,7 +80,10 @@ class App extends Component {
         (filters.time === 'medium' && trail.time >= 20 && trail.time <= 60) ||
         (filters.time === 'long' && trail.time > 60)
       ) : true;
-      return matchesDifficulty && matchesDistance && matchesElevationGain && matchesmaximumElevation && matchestime;
+      const matchesTags = !filters.tagsExcluded.some(t => trail.tags.includes(t)) && (
+        filters.tagsSelected.length === 0 || filters.tagsSelected.some(t => trail.tags.includes(t))
+      );
+      return matchesDifficulty && matchesDistance && matchesElevationGain && matchesmaximumElevation && matchestime && matchesTags;
     });
   };
 
@@ -118,7 +125,13 @@ class App extends Component {
               <div class="main-result">${resultsText}</div>
               <div class="filters-and-results">
                 <div class="filters-container">
-                  <${Filters} filters=${filters} sortOrder=${sortOrder} onFilterChange=${this.applyFilters} onSortChange=${this.applySortOrder} />
+                  <${Filters}
+                    filters=${filters}
+                    sortOrder=${sortOrder}
+                    onFilterChange=${this.applyFilters}
+                    onSortChange=${this.applySortOrder}
+                    tags=${["Dogs allowed", "Kid-friendly", "Paved"]}
+                  />
                 </div>
                 <div class="results-container">
                   <${SearchResults} results=${sortedTrails} query=${query} select=${this.select} />
