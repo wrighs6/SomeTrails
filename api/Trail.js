@@ -1,5 +1,5 @@
 class Trail {
-  constructor({ name, description, location, difficulty, path, images, id }) {
+  constructor({ name, description, location, difficulty, path, images, tags, id }) {
     const haversineDistance = ([lon1, lat1], [lon2, lat2]) => {
       const toRadian = angle => (Math.PI / 180) * angle;
       const distance = (a, b) => (Math.PI / 180) * (a - b);
@@ -51,6 +51,7 @@ class Trail {
     this.time = distance * 30;
     this.path = path;
     this.images = images;
+    this.tags = tags;
   }
 }
 
