@@ -172,7 +172,13 @@ body {
 .result-title {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.result-tags {
+  font-style: italic;
   margin-bottom: 0.5em;
+  font-size: 1rem;
+  color: #333;
 }
 
 .result-description {
@@ -288,6 +294,10 @@ body {
   padding: 20px;
   border-radius: 10px;
 }
+
+.detail-tags {
+  font-style: italic;
+} 
 
 .detail-stats>span {
   display: inline-block;

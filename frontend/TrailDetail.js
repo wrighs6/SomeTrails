@@ -24,6 +24,7 @@ export default class TrailDetail extends Component {
         </header>
         <div class="detail-card">
           <h1>${data.name}</h1>
+          <p class="detail-tags">${data.tags.join(", ")}</p>
           <p><a href="">${data.location}</a></p>
           <div class="detail-stats">
             <span>Difficulty: ${data.difficulty}</span>
