@@ -172,7 +172,13 @@ body {
 .result-title {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.result-tags {
+  font-style: italic;
   margin-bottom: 0.5em;
+  font-size: 1rem;
+  color: #333;
 }
 
 .result-description {
@@ -289,6 +295,10 @@ body {
   border-radius: 10px;
 }
 
+.detail-tags {
+  font-style: italic;
+} 
+
 .detail-stats>span {
   display: inline-block;
   margin-right: 2em;
@@ -296,8 +306,6 @@ body {
 
 /* Filters Section */
 .filters {
-  display: flex;
-  flex-direction: column;
   gap: 0.5em;
   background-color: rgb(255, 255, 255);
   /* Ensure no background color if nested */
