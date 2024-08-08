@@ -1,6 +1,9 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
+// A simple form with a text input field
+// On form submission, SearchBar sends the search query back up to App using a provided search function
+
 export default class SearchBar extends Component {
   handleSubmit = (event) => {
     event.preventDefault();

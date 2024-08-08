@@ -8,6 +8,10 @@ const truncate = (input) => input.length > 400 ? `${input.substring(0, 400)}... 
 // Helper function to format numbers to two decimal places
 const formatNumber = (number) => parseFloat(number).toFixed(2);
 
+// SearchResults displays the results of the search made by the user
+// The component receives a sorted and filtered array of trails from App and uses them to display
+// data for each trail, including an ImageSlideshow
+
 export default class SearchResults extends Component {
   scrollToSearchResults() {
     const homeSection = document.querySelector('.home');

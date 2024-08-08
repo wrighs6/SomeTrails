@@ -7,6 +7,8 @@ const formatNumber = (number) => parseFloat(number).toFixed(2);
 import Map from './Map.js';
 import ImageSlideshow from "./ImageSlideshow.js";
 
+// TrailDetail displays all data related to a trail, including a Map of the trail
+
 export default class TrailDetail extends Component {
   componentDidMount() {
     fetch(`https://api.${window.location.host}/${this.props.selected}`)

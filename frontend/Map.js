@@ -1,6 +1,9 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
+// The Map component makes use of the Leaflet library to display an interactive map of a trail
+// The trail's path field is used as a GeoJSON LineString for this purpose
+
 export default class Map extends Component {
   componentDidMount() {
     const path = this.props.path;
