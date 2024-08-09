@@ -48,7 +48,7 @@ export default class TrailDetail extends Component {
         </div>
         <div class="detail-card">
           <div class="detail-half">
-            <${Map} path=${data.path} />
+            <${Map} path=${data.path} name=${data.name} />
           </div>
           <div class="detail-half">
             <${ImageSlideshow} slides=${data.images} />
