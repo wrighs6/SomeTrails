@@ -1,4 +1,3 @@
-import { useState } from 'preact/hooks'
 import { Component, render } from 'preact';
 import { html } from 'htm/preact';
 

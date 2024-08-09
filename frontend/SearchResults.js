@@ -8,10 +8,21 @@ const truncate = (input) => input.length > 400 ? `${input.substring(0, 400)}... 
 // Helper function to format numbers to two decimal places
 const formatNumber = (number) => parseFloat(number).toFixed(2);
 
+//Helper function to set time to hrs, min
+const formatTime = (minutes) => {
+  const hours = Math.floor(minutes / 60);  // Calculate the whole hours
+  const remainingMinutes = Math.round(minutes % 60);  // Calculate the remaining minutes
+
+  if (hours === 0) {
+    return `${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''}`;
+  } else {
+  return `${hours} hour${hours !== 1 ? 's' : ''} and ${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''}`;
+  }
+}
+
 // SearchResults displays the results of the search made by the user
 // The component receives a sorted and filtered array of trails from App and uses them to display
 // data for each trail, including an ImageSlideshow
-
 export default class SearchResults extends Component {
   scrollToSearchResults() {
     const homeSection = document.querySelector('.home');
@@ -51,7 +62,7 @@ export default class SearchResults extends Component {
                 <div class="result-distance">Length of trail: ${formatNumber(result.distance)} miles</div>
                 <div class="result-elevationGain">Elevation gain: ${formatNumber(result.elevationGain)} ft</div>
                 <div class="result-maximumElevation">Maximum elevation: ${formatNumber(result.maximumElevation)} ft</div>
-                <div class="result-time">Estimated time to complete: ${parseFloat(result.time).toFixed()} minutes</div>
+                <div class="result-time">Estimated time to complete: ${formatTime(result.time)}</div>
               </div>
               <div style=${containerStyles}>
                 <${ImageSlideshow} slides=${result.images} />
