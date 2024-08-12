@@ -1,6 +1,9 @@
 import { Component } from 'preact';
 import { html } from 'htm/preact';
 
+// Filters lets the user view and control the trail sorting and filtering
+// This is done by using managed inputs which display the current state and respond to input by updating the state appropriately
+
 export default class Filters extends Component {
   state = {
     showNotification: false

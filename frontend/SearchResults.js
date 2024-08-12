@@ -20,6 +20,9 @@ const formatTime = (minutes) => {
   }
 }
 
+// SearchResults displays the results of the search made by the user
+// The component receives a sorted and filtered array of trails from App and uses them to display
+// data for each trail, including an ImageSlideshow
 export default class SearchResults extends Component {
   scrollToSearchResults() {
     const homeSection = document.querySelector('.home');

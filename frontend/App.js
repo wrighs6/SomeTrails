@@ -6,7 +6,10 @@ import TrailDetail from './TrailDetail.js';
 import Filters from './filters.js';
 import BackToTopButton from './BackToTopButton.js';
 
+// As the top-level component, App contains the data and logic needed by child components
+
 class App extends Component {
+  // initialize component state with all fields not expected to be undefined
   state = {
     trails: [],
     filters: {
@@ -21,6 +24,8 @@ class App extends Component {
     sortOrder: '', // Add sortOrder state
   };
 
+  // Every time App is updated, check if the search query has changed
+  // If so, reset the filters and sort order and make a request to the API for the new array of trails
   componentDidUpdate(prevProps, prevState) {
     if (prevState.query !== this.state.query) {
       this.setState({
@@ -33,7 +38,7 @@ class App extends Component {
           tagsSelected: [],
           tagsExcluded: []
         },
-        sortOrder: '', // Reset sortOrder when query changes
+        sortOrder: '',
       });
       const qs = this.state.query == "" ? "" : `?${new URLSearchParams({ text: this.state.query })}`;
       fetch(`https://api.${window.location.host}/${qs}`)
@@ -110,6 +115,8 @@ class App extends Component {
     }
   };
 
+  // If the user has selected a trail, display the detail page for that trail
+  // Otherwise, display the homepage, along with the filters and search results if a search has been made
   render() {
     const { trails, selected, query, filters, sortOrder } = this.state;
     const filteredTrails = this.filterTrails(trails, filters);

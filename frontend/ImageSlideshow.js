@@ -47,7 +47,8 @@ const dotStyle = {
   fontSize: "20px",
 };
 
-//const [currentIndex, setCurrentIndex] = useState(0);
+// ImageSlideshow displays several images and gives the user controls for moving between images
+
 export default class ImageSlideshow extends Component {
   
   state = {
@@ -55,9 +56,6 @@ export default class ImageSlideshow extends Component {
 
   };
   goToPrevious = () => {
-    // if (this.state.currentIndex == 0){
-    //   const isFirstSlide = this.state.currentIndex;
-    // }
     const isFirstSlide = this.state.currentIndex == 0;
     const newIndex = isFirstSlide ? this.props.slides.length - 1 : this.state.currentIndex - 1;
     this.setState({currentIndex: newIndex})
@@ -71,17 +69,6 @@ export default class ImageSlideshow extends Component {
   goToSlide = (slideIndex) => {
     this.setState({ currentIndex: slideIndex });
   };
-  // slideStylesWidthBackground = {
-  //   ...slideStyles,
-  //   backgroundImage: `url(${this.props.slides[this.currentIndex].url})`,
-  // };
-
-  // slideStylesWidthBackground = {
-  //   ...slideStyles,
-  //   backgroundImage: this.props.slides && this.props.slides[this.state.currentIndex] 
-  //     ? `url(${this.props.slides[this.state.currentIndex]})` 
-  //     : 'url(https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg)', // Fallback URL
-  // };
 
 render() {
   const slideStylesWidthBackground = {

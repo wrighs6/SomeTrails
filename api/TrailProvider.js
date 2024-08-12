@@ -1,4 +1,7 @@
 class TrailProvider {
+  // TrailProvider is an abstact class describing the necessary functionality for managing Trails
+  // As JavaScript does not provide support for abstract classes,
+  // the constructor includes several checks ensuring requirements are met
   constructor(source) {
     if (this.constructor == TrailProvider)
       throw new Error("Abstract class TrailProvider can't be instantiated");

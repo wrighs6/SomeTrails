@@ -1,4 +1,7 @@
 class Trail {
+  // A Trail represents all data related to a single trail in the database
+  // The path field is particularly important, as it is used to calculate several other fields
+  // A path is expected to be an array of GeoJSON coordinates, including elevation
   constructor({ name, description, location, difficulty, path, images, tags, id }) {
     const haversineDistance = ([lon1, lat1], [lon2, lat2]) => {
       const toRadian = angle => (Math.PI / 180) * angle;
@@ -37,6 +40,7 @@ class Trail {
         elevationMax = path[i][2];
     }
 
+    // convert from meters to feet
     elevationGain *= 3.280839895;
     elevationMax *= 3.280839895;
 
