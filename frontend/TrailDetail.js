@@ -38,7 +38,7 @@ export default class TrailDetail extends Component {
         <div class="detail-card">
           <h1>${data.name}</h1>
           <p class="detail-tags">${data.tags.join(", ")}</p>
-          <p><a href="">${data.location}</a></p>
+          <p><a>${data.location}</a></p>
           <div class="detail-stats">
             <span>Difficulty: ${data.difficulty}</span>
             <span>Length: ${formatNumber(data.distance)} Miles</span>
